@@ -2,6 +2,7 @@
 
 const REQUEST_PROMISE_NATIVE = require('request-promise-native');
 const _ = require('lodash');
+const ApiInterface = require('./ApiInterface');
 class FullContactApiIllegalArgumentsError extends Error {
 
     constructor(msg) {
@@ -29,9 +30,10 @@ class FullContactApiLimitReachedError extends Error {
 
 }
 
-class FullContactApi {
+class FullContactApi extends ApiInterface {
 
     constructor(key) {
+        super();
         this.gender;
         this.uri = 'http://api.fullcontact.com/v2/name/stats.json?name=';
         this.key = key;
